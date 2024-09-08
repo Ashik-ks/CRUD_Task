@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.navimg{
+    margin-bottom: 8px;
+}
+.datacontainerimg{
+    width: 30px;
+}
+.form{
+    width: 50%;
+    border-radius: 7px;
+    border: 2px solid rgb(239, 239, 240);
+   
+}
+
+
+.ddd{
+    margin-left: 370px;
+}
+.nulldiv{
+    border: 2px solid rgb(234, 225, 225);
+    padding-top: 9px;
+    padding-bottom: 9px;
+    box-shadow: 3px 3px 12px rgb(236, 235, 235);
+}
+.tt,.tt1{
+    width: 90%;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+.twodivdiv,.twodivdiv1{
+    width:80%;
+    /* margin-left: 4px; */
+   margin-top: 10px;
+}
+.formbtn,.formbtn1{
+    border-radius: 5px;
+    /* padding: 3px; */
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    background-color: rgb(53, 120, 235);
+    color: white;
+    border: 1px rgb(53, 120, 235);
+}
+.bodyaddpage,.bodyaddpage1{
+    background-color: rgb(142, 179, 225);
+}
+.twodiv,.twodiv{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.bodyc{
+    background-color: rgb(194, 232, 239);
+}
+.datacontainerimg2{
+    width: 125px;
+}
+.datacontainer1{
+
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(184, 7, 7, 0.1);
+    background-color: #fff;
+}
+.detailsbtn{
+    width: 60px;
+    border-radius: 7px;
+    background-color: rgb(234, 67, 67);
+    color: white;
+    border: 2px dotted white;
+    margin-left: 25px;
+}
+.namediv,.agediv{
+    margin-left: 15px;
+}
+.bodydes{
+    animation: colorFade 10s infinite alternate;
+}
+
+@keyframes colorFade {
+    0% { background-color: #ffcc00; }
+    50% { background-color: #ff6699; }
+    100% { background-color: #66ccff; }
+}
