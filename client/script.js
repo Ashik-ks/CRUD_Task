@@ -2,6 +2,7 @@
 
 
 async function addUser(event) {
+    window.location.href = `viewpage.html`
     event.preventDefault();
     console.log("Reached here")
 
@@ -87,6 +88,7 @@ async function addUser(event) {
 }
 
 async function fetchdata() {
+    
 
     try {
         let response = await fetch('/submit');
@@ -111,8 +113,8 @@ async function fetchdata() {
             <div id = "categoryid" class =" ddd pe-3 ps-2 fs-5 fw-bold">${display[i].email}</div>
              <div id = "priceid" class ="pe-3 fs-5 fw-bold me-5 agediv">${display[i].age}</div>
              <div id="btnid" class = "text-center ms-5 mt-2 "><button onclick="handleClick('${id}')" class = "detailsbtn">Details</button></div>
-             <div  class="ms-5 mt-2 "><button <button onclick="handleClick1('${id}')" class = "detailsbtn">Edit</button></div>
              <div class="ms-5 mt-2"> <button  onclick="handleClick2('${id}')" class = "detailsbtn">Delete</button></div>
+             
            </div>
         `
         }
@@ -128,6 +130,11 @@ function handleClick(id) {
 }
 
 async function singledata() {
+
+    // window.location.href = `viewpage.html`
+
+    document.getElementById("editform").style.display = "none"
+
     let location = window.location;
     console.log("location", location);
 
@@ -146,6 +153,8 @@ async function singledata() {
         let displaydata = await fetch(`/user?id=${id}`)
         let singleuser = await displaydata.json()
         console.log("singleuser : ", singleuser);
+
+        let strsingleuser =  JSON.stringify(singleuser);
         let rows = `
      
      <div class="container  lh-lg  pb-3 pt-3 shadow p-3 mb-5 bg-body rounded mt-3">
@@ -155,6 +164,8 @@ async function singledata() {
                      <div id = "ratingid1" class="fst-normal fs-3">Age : ${singleuser.age}</div>
                      <div id = "ratingid1" class="fst-normal fs-3">Course : ${singleuser.course}</div>
                      <div id = "ratingid1" class="fst-normal fs-3">Profile : ${singleuser.profile}</div>
+                     <div  class="ms-5 mt-2 "><button data-user='${strsingleuser}' onclick="handleClick1(this)" class = "detailsbtn">Edit</button></div>
+                    
                      </div>
            </div>
      `
@@ -165,13 +176,38 @@ async function singledata() {
 
 }
 
-function handleClick1(id){
+function handleClick1(buttonElement){
+
+    let strsingleuser = buttonElement.getAttribute('data-user');
+
+    let userdata = JSON.parse(strsingleuser);
+
     
-    window.location.href = `editpage.html?id=${id}`
+    document.getElementById("editform").style.display = "block";
+
+    let newname = document.getElementById('newname');
+     newname.value = userdata.name;
+     let newemail = document.getElementById('newemail');
+     newemail.value = userdata.email
+     let newpassword = document.getElementById('newpassword');
+     newpassword.value = userdata.password
+     let newage = document.getElementById('newage');
+     newage.value = userdata.age
+     let newimageurl = document.getElementById('newimageurl');
+     newimageurl.value = userdata.imageurl
+     let newdob = document.getElementById('newdob');
+     newdob.value = userdata.dob
+     let newcourse = document.getElementById('newcourse');
+     newcourse.value = userdata.course
+     let newprofile = document.getElementById('newprofile');
+     newprofile.value = userdata.profile
+
 }
 
 async function edit(){
     
+
+
     let location = window.location;
     console.log("location", location);
 
@@ -184,6 +220,8 @@ async function edit(){
 
     let id = urlParams.get("id");
     console.log("id ", id, typeof (id)); 
+
+    
 
     let name = document.getElementById('newname').value;
     console.log("name  : ",name)
@@ -226,6 +264,8 @@ async function edit(){
     });
     console.log("response : ", responses);
 
+
+    // alert("Updated successfully");
   
 }
  

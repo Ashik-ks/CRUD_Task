@@ -54,6 +54,10 @@ const server = http.createServer( async (req,res) => {
         res.writeHead(200,{'Content-Type' : 'text/html'});
         res.end(fs.readFileSync('../client/editpage.html'));
     }
+    // if (parsed_url.pathname === '/images'){
+    //     res.writeHead(200,{'Content-Type' : 'text/images'});
+    //     res.end(fs.readFileSync('../client/images'));
+    // }
   
     
     else if(parsed_url.pathname === '/style.css'){
@@ -300,10 +304,10 @@ const server = http.createServer( async (req,res) => {
            let struserdataa = JSON.stringify(editdata);
            console.log("struserdata : ",struserdataa);
    
-        //    res.writeHead(200,{"Content-Type" : "application/json"});
-        //    res.end(struserdataa);
+           res.writeHead(200,{"Content-Type" : "application/json"});
+           res.end(struserdataa);
 
-        
+       
 
     });
     }
