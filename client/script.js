@@ -204,9 +204,9 @@ function handleClick1(buttonElement){
 
 }
 
-async function edit(){
+async function edit(event){
     
-
+event.preventDefault()
 
     let location = window.location;
     console.log("location", location);
@@ -265,7 +265,7 @@ async function edit(){
     console.log("response : ", responses);
 
 
-    // alert("Updated successfully");
+    alert("Updated successfully");
   
 }
  
